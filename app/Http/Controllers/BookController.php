@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Category;
-
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
