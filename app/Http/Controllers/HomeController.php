@@ -23,11 +23,7 @@ class HomeController extends Controller
     return view('home.index', compact('data'));
   }
 
-  // public function book_details($id)
-  // {
-  //     $book=Book::find($id);
-  //     return view('home.book_details', compact('book'));
-  // }
+  
 
   public function borrow_books($id)
   {
@@ -85,15 +81,7 @@ class HomeController extends Controller
     return view('home.explore', compact('data', 'category'));
   }
 
-  //     public function search(Request $request)
-  // {
 
-  //     $category=Category::all();
-
-  //     $search = $request->search; // Correctly assign the search query to $search
-  //     $data = Book::where('title', 'LIKE', '%' . $search . '%')->orWhere('author_name', 'LIKE', '%' . $search . '%')->get(); // Use $search here
-  //     return view('home.explore', compact('data', 'category'));
-  // }
 
   public function cat_search($id)
   {
@@ -123,20 +111,7 @@ class HomeController extends Controller
   }
 
 
-  // public function viewBook($bookId)
-  // {
-  //     $book = Book::findOrFail($bookId);
-
-  //     // Save view history
-  //     if (Auth::check() && !empty($search)){
-  //         BookViewHistory::create([
-  //             'user_id' => Auth::id(),
-  //             'book_id' => $book->id,
-  //         ]);
-  //     }
-
-  //     return view('books.details', compact('book'));
-  // }
+ 
 
   public function book_details($id)
   {

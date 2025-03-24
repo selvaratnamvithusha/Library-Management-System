@@ -51,6 +51,23 @@
                 <img src="{{ asset('storage/' . $book->book_img) }}" alt="Book Image">
                 <h3>{{ $book->title }}</h3>
                 <p>Author: {{ $book->author_name }}</p>
+                <span class="bid">
+                    Current Available<br><strong>{{$book->quantity}}</strong><br> 
+                  </span>
+                  
+                  <div class="text-button">
+                    <a href="{{ url('book_details', $book->id) }}" style="color: #5bc0de; font-weight: bold;">View Book Details</a>
+                  </div>
+                  
+
+                </br>
+
+                  <div class="">
+                    <a class="btn" href="{{ url('borrow_books', $book->id) }}" style="background-color: #5bc0de; color: white;">
+                      Apply to Borrow
+                    </a>
+                    
+                  </div>
             </div>
             @endforeach
         </div>

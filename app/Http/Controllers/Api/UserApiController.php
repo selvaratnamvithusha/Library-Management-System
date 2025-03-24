@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Book;
-use App\Models\Category;
-
 use Illuminate\Http\Request;
-
 use GuzzleHttp\Client;
 
-class UserController extends Controller
+class UserApiController extends Controller
 {
-    
     public function getUserHistories($userId)
     {
         set_time_limit(300);
@@ -51,8 +48,8 @@ class UserController extends Controller
 
         $prompt = "Based on the user's search history: " . implode(', ', $userHistories['search_histories']) .
             ", viewed books: " . implode(', ', $userHistories['book_view_histories']) .
-            ", and borrowed books: " . implode(', ', $userHistories['borrow_histories']) .
-            ", Suggest 5 books from the following list that the user might like: " . json_encode($bookData) .
+            ", and borrowed books: " . implode(', ', $userHistories['borrow_histories']) . 
+            ", Suggest 5 books from the following list that the user might like: " . json_encode($bookData) . 
             ", can you return suggested books ids in array i dont need any text from your side just return only 5 books id in array";
 
         $response = $client->post('http://localhost:11434/api/chat', [
@@ -77,4 +74,5 @@ class UserController extends Controller
 
         return response()->json(['recommended_books' => $recommendations], 200);
     }
+
 }
